@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+  <div class="col-6 mt-5 bg-light">
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Make this list", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "Back to lists", lists_path, class: "btn btn-secondary my-3" %>
+  </div>
+</div>
