@@ -1,5 +1,10 @@
 <div class="w-50 mx-auto">
   <h1 class="mt-5"><%= @list.name %> !!! </h1>
+  <div class="card mb-4 p-4">
+    <div class="card-img">
+      <%= image_tag("channels4_profile.jpg") %>
+    </div>
+  </div>
   <% if @bookmarks.any? %>
     <% @bookmarks.each do |bookmark| %>
       <div class="card mb-4">
