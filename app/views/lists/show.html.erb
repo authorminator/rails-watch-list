@@ -1,13 +1,18 @@
 <div class="w-50 mx-auto">
   <h1 class="mt-5"><%= @list.name %> !!! </h1>
-  <div class="card mb-4 p-4">
+  <%# <div class="card mb-4 p-4">
     <div class="card-img">
       <%= image_tag("channels4_profile.jpg") %>
-    </div>
-  </div>
+  <%# </div> %>
+  <%# </div> %>
   <% if @bookmarks.any? %>
     <% @bookmarks.each do |bookmark| %>
       <div class="card mb-4">
+        <div class="card-img m-3">
+          <% unless @list.photo.key.nil? %>
+            <%= cl_image_tag @list.photo.key, width: 400, height: 300, crop: :fill %>
+          <% end %>
+        </div>
         <div class="card-body bg-light">
           <blockquote class="blockquote">
             <p>
@@ -17,6 +22,9 @@
               <%= bookmark.comment %>
             </footer>
           </blockquote>
+          <div>
+            <h3><i class="fa-regular fa-rectangle-xmark"></i></h3>
+          </div>
         </div>
       </div>
     <% end %>
@@ -29,5 +37,6 @@
       </div>
     </div>
   <% end %>
+  <%= link_to "Add a new bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %>
   <%= link_to "Back to Lists", lists_path, class: "btn btn-secondary" %>
 </div>

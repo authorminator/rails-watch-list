@@ -4,20 +4,26 @@
     <% @lists.each do |list| %>
       <div class="col-3 d-flex">
         <div class="card card-body my-2">
+          <div class="card-img m-3">
+            <% unless list.photo.key.nil? %>
+              <%= cl_image_tag list.photo.key, height: 150, crop: :fill %>
+            <% else %>
+              <div class="d-flex align-items-center" style="height: 200px; width: auto">
+                <h3>No Image here 😑</h3>
+              </div>
+            <% end %>
+          </div>
           <div class="card-title">
             <h3> <%= list.name %></h3>
           </div>
           <%= link_to "More", list_path(list), class: "btn btn-secondary" %>
         </div>
-
       </div>
-
     <% end %>
-
   </div>
   <%= link_to "Add a new list", new_list_path(@list), class: "btn btn-primary" %>
   <hr>
-    <div class="row">
+  <div class="row">
     <% @movies.each do |movie| %>
       <div class="col-3 d-flex">
         <div class="card card-body my-2">
@@ -26,8 +32,6 @@
           </div>
         </div>
       </div>
-
     <% end %>
-
   </div>
 </div>
