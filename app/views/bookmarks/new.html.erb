@@ -1,5 +1,10 @@
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie %>
-  <%= f.text_area :comment %>
-  <%= f.submit %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-6 mt-5 bg-secondary p-3">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.text_area :comment %>
+      <%= f.submit "Add this bookmark", class: "btn btn-light" %>
+    <% end %>
+    <%= link_to "Back to the list", list_path(@list), class: "btn btn-light my-3" %>
+  </div>
+</div>
